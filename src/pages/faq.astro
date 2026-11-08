@@ -1,0 +1,101 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import { faqData } from '../data/faqData';
+import { siteData } from '../data/siteData';
+
+const breadcrumbs = [
+  { name: "الأسئلة الشائعة", url: "/faq" }
+];
+---
+
+<MainLayout
+  title="الأسئلة الشائعة حول مطابخ الدمام | صيانة وتركيب وفك المطابخ"
+  description="إجابات تفصيلية عن كل ما يخص صيانة، فك، نقل، وتركيب المطابخ بالدمام والخبر: الأسعار، مدة العمل، الضمان، مفصلات الهيدروليك، وتعديل الرخام."
+  faqSchema={faqData}
+  breadcrumbs={breadcrumbs}
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container text-center">
+      <span class="section-badge">مركز الإجابات المعتمدة</span>
+      <h1 class="page-title">الأسئلة الشائعة حول خدمات المطابخ بالدمام</h1>
+      <p class="page-lead">
+        جمعنا لك هنا أهم التساؤلات المتكررة حول فك ونقل وصيانة وتجديد المطابخ في المنطقة الشرقية مع إجابات الخبراء الواضحة.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <FAQAccordion items={faqData} title="أكثر الأسئلة تداولاً وإجاباتها" />
+
+  <!-- Ask Question Banner -->
+  <section class="cta-banner-section">
+    <div class="container text-center">
+      <h2 class="cta-banner-title">لم تجد إجابة لسؤالك؟</h2>
+      <p class="cta-banner-desc">تواصل معنا مباشرة وسيجيبك فني المطابخ فوراً وبكل رحابة صدر.</p>
+      <div class="cta-banner-actions">
+        <a href={`tel:${siteData.phoneInternational}`} class="btn btn-lg btn-primary">اتصل الآن: {siteData.phoneDisplay}</a>
+        <a href={siteData.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-whatsapp">اسأل عبر الواتساب</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .page-header {
+    background: linear-gradient(135deg, var(--color-dark), var(--color-dark-light));
+    color: #FFFFFF;
+    padding-block: 4.5rem 4rem;
+    border-bottom: 3px solid var(--color-primary);
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: #CBD5E1;
+    max-width: 780px;
+    margin-inline: auto;
+    line-height: 1.7;
+  }
+
+  .cta-banner-section {
+    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%);
+    color: #FFFFFF;
+    padding-block: 4rem;
+    border-top: 1px solid var(--color-gold-border);
+    border-bottom: 1px solid var(--color-gold-border);
+  }
+
+  .cta-banner-title {
+    font-size: 2.2rem;
+    color: #FFFFFF;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-banner-desc {
+    color: var(--color-accent-gold);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-banner-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-banner-actions .btn-primary {
+    background: var(--color-dark);
+    color: #FFFFFF;
+  }
+</style>

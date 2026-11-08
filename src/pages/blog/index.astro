@@ -1,0 +1,262 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { blogData } from '../../data/blogData';
+import { siteData } from '../../data/siteData';
+
+const breadcrumbs = [
+  { name: "المقالات والنصائح", url: "/blog" }
+];
+---
+
+<MainLayout
+  title="مقالات ونصائح صيانة وتركيب المطابخ في الدمام | دليل الخبراء"
+  description="دليل مقالات ونصائح فني مطابخ الدمام: دليلك لصيانة وتجديد المطابخ، اختيار الفني المحترف، أفضل أنواع المفصلات والرخام، وطرق فك ونقل المطبخ بأمان."
+  breadcrumbs={breadcrumbs}
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container text-center">
+      <span class="section-badge">دليل المعرفة والمقالات</span>
+      <h1 class="page-title">نصائح ومقالات متخصصة في مطابخ الدمام</h1>
+      <p class="page-lead">
+        مقالات وإرشادات حصرية يكتبها خبراؤنا لمساعدتك على الحفاظ على مطبخك، اختيار أفضل قطع الغيار، وتجنب تكاليف التجديد الباهظة.
+      </p>
+    </div>
+  </section>
+
+  <!-- Blog Listing Grid -->
+  <section class="section blog-listing-section">
+    <div class="container">
+      <div class="grid-3 blog-grid">
+        {blogData.map(post => (
+          <article class="blog-card">
+            <a href={`/blog/${post.slug}`} class="blog-card-img-link">
+              <img src={post.image} alt={post.title} loading="lazy" />
+              <span class="blog-category-tag">{post.category}</span>
+            </a>
+            <div class="blog-card-body">
+              <div class="blog-meta">
+                <span class="blog-date">{post.publishDate}</span>
+                <span class="blog-dot">•</span>
+                <span class="blog-read-time">{post.readTime}</span>
+              </div>
+              <h2 class="blog-card-title">
+                <a href={`/blog/${post.slug}`}>{post.title}</a>
+              </h2>
+              <p class="blog-card-excerpt">{post.excerpt}</p>
+              
+              <div class="blog-card-footer">
+                <a href={`/blog/${post.slug}`} class="read-more-link">
+                  <span>اقرأ المقال بالكامل</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Box -->
+  <section class="cta-banner-section">
+    <div class="container text-center">
+      <h2 class="cta-banner-title">هل تحتاج استشارة فنية لمطبخك الآن؟</h2>
+      <p class="cta-banner-desc">اتصل بفني المطابخ في الدمام وسنساعدك في حل أي مشكلة أو الإجابة على استفساراتك مجاناً.</p>
+      <div class="cta-banner-actions">
+        <a href={`tel:${siteData.phoneInternational}`} class="btn btn-lg btn-primary">اتصل الآن: {siteData.phoneDisplay}</a>
+        <a href={siteData.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-whatsapp">تواصل واتساب</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .page-header {
+    background: linear-gradient(135deg, var(--color-dark), var(--color-dark-light));
+    color: #FFFFFF;
+    padding-block: 4.5rem 4rem;
+    border-bottom: 3px solid var(--color-primary);
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: #CBD5E1;
+    max-width: 780px;
+    margin-inline: auto;
+    line-height: 1.7;
+  }
+
+  .blog-listing-section {
+    background: var(--color-bg);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .blog-card {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+  }
+
+  .blog-card-img-link {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    display: block;
+  }
+
+  .blog-card-img-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .blog-card:hover .blog-card-img-link img {
+    transform: scale(1.06);
+  }
+
+  .blog-category-tag {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(15, 23, 42, 0.85);
+    color: var(--color-accent-gold);
+    padding: 0.3rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 700;
+    backdrop-filter: blur(6px);
+  }
+
+  .blog-card-body {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.825rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.65rem;
+  }
+
+  .blog-card-title {
+    font-size: 1.25rem;
+    line-height: 1.45;
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-card-title a {
+    color: var(--color-dark);
+  }
+
+  .blog-card-title a:hover {
+    color: var(--color-primary);
+  }
+
+  .blog-card-excerpt {
+    color: var(--color-text-muted);
+    font-size: 0.925rem;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+    flex: 1;
+  }
+
+  .blog-card-footer {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1rem;
+  }
+
+  .read-more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    transition: gap var(--transition-fast);
+  }
+
+  .read-more-link:hover {
+    color: var(--color-primary-hover);
+    gap: 0.75rem;
+  }
+
+  .cta-banner-section {
+    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%);
+    color: #FFFFFF;
+    padding-block: 4rem;
+    border-top: 1px solid var(--color-gold-border);
+    border-bottom: 1px solid var(--color-gold-border);
+  }
+
+  .cta-banner-title {
+    font-size: 2.2rem;
+    color: #FFFFFF;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-banner-desc {
+    color: var(--color-accent-gold);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-banner-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-banner-actions .btn-primary {
+    background: var(--color-dark);
+    color: #FFFFFF;
+  }
+
+  @media (max-width: 1024px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

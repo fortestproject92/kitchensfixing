@@ -1,0 +1,355 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { areasData } from '../data/areasData';
+import { siteData } from '../data/siteData';
+
+const breadcrumbs = [
+  { name: "مناطق الخدمة بالدمام والشرقية", url: "/areas" }
+];
+---
+
+<MainLayout
+  title="مناطق خدمة فني مطابخ الدمام | تغطية شاملة لكافة أحياء الدمام والخبر"
+  description="دليل أحياء ومناطق خدمة تركيب وصيانة وفك المطابخ في الدمام والخبر والظهران وسيهات. سرعة وصول ومعاينة فورية وسيارات مجهزة بقطع الغيار."
+  breadcrumbs={breadcrumbs}
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container text-center">
+      <span class="section-badge">تغطية ميدانية سريعة</span>
+      <h1 class="page-title">مناطق خدمة تركيب وصيانة المطابخ بالدمام والشرقية</h1>
+      <p class="page-lead">
+        نصلك أينما كنت في مدينة الدمام والخبر والظهران. سياراتنا المجهزة بأحدث المعدات وقطع الغيار الأصلية تنتقل فوراً لخدمتك في منزلك.
+      </p>
+    </div>
+  </section>
+
+  <!-- Areas Grid -->
+  <section class="section areas-section">
+    <div class="container">
+      <div class="grid-2 areas-grid">
+        {areasData.map(area => (
+          <div class="area-card">
+            <div class="area-header">
+              <div class="area-icon-pin">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="area-header-info">
+                <h2 class="area-card-title">{area.name}</h2>
+                <span class="area-type-badge">
+                  {area.type === 'dammam' ? 'أحياء الدمام' : area.type === 'khobar' ? 'مدينة الخبر' : 'الظهران والمدن المجاورة'}
+                </span>
+              </div>
+            </div>
+
+            <p class="area-desc">{area.description}</p>
+
+            <div class="area-services-box">
+              <span class="area-services-label">أكثر الخدمات طلباً في هذه المنطقة:</span>
+              <div class="area-tag-list">
+                {area.popularServices.map(s => (
+                  <span class="area-service-tag">{s}</span>
+                ))}
+              </div>
+            </div>
+
+            <div class="area-action">
+              <a
+                href={`https://wa.me/966535486325?text=${encodeURIComponent(`السلام عليكم، أحتاج خدمة مطابخ في (${area.name})`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-sm btn-whatsapp area-whatsapp-btn"
+                style="width: 100%;"
+              >
+                <span>طلب معاينة في {area.name.includes('(') ? area.name.split('(')[0].trim() : area.name.split('-')[0].trim()}</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Box -->
+  <section class="cta-banner-section">
+    <div class="container text-center">
+      <h2 class="cta-banner-title">هل حيك غير مذكور في القائمة؟</h2>
+      <p class="cta-banner-desc">نحن نغطي كافة أنحاء المنطقة الشرقية بلا استثناء. اتصل بنا وسنصلك فوراً.</p>
+      <div class="cta-banner-actions">
+        <a href={`tel:${siteData.phoneInternational}`} class="btn btn-lg btn-primary">اتصل الآن: {siteData.phoneDisplay}</a>
+        <a href={siteData.whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-whatsapp">محادثة واتساب</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .page-header {
+    background: linear-gradient(135deg, var(--color-dark), var(--color-dark-light));
+    color: #FFFFFF;
+    padding-block: 4.5rem 4rem;
+    border-bottom: 3px solid var(--color-primary);
+  }
+
+  .page-title {
+    font-size: clamp(1.85rem, 4vw, 3rem);
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+    line-height: 1.35;
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: #CBD5E1;
+    max-width: 780px;
+    margin-inline: auto;
+    line-height: 1.7;
+  }
+
+  .areas-section {
+    background: var(--color-bg);
+  }
+
+  .areas-grid {
+    gap: 2rem;
+  }
+
+  .area-card {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .area-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
+  }
+
+  .area-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .area-header-info {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .area-icon-pin {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .area-card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.35;
+    word-break: break-word;
+  }
+
+  .area-type-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    font-weight: 600;
+  }
+
+  .area-desc {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+    flex: 1;
+  }
+
+  .area-services-box {
+    background: var(--color-surface-alt);
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1.5rem;
+  }
+
+  .area-services-label {
+    display: block;
+    font-size: 0.825rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .area-tag-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .area-service-tag {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    font-size: 0.8rem;
+    color: var(--color-text);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+  }
+
+  .area-whatsapp-btn {
+    white-space: normal;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .cta-banner-section {
+    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-light) 100%);
+    color: #FFFFFF;
+    padding-block: 4rem;
+    border-top: 1px solid var(--color-gold-border);
+    border-bottom: 1px solid var(--color-gold-border);
+  }
+
+  .cta-banner-title {
+    font-size: clamp(1.5rem, 4.5vw, 2.2rem);
+    color: #FFFFFF;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-banner-desc {
+    color: var(--color-accent-gold);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-banner-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-banner-actions .btn-primary {
+    background: var(--color-dark);
+    color: #FFFFFF;
+  }
+
+  @media (max-width: 768px) {
+    .page-header {
+      padding-block: 2.75rem 2.25rem;
+    }
+
+    .page-title {
+      font-size: clamp(1.5rem, 5.5vw, 2.2rem);
+    }
+
+    .page-lead {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .areas-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .area-card {
+      padding: 1.35rem 1.15rem;
+      border-radius: var(--radius-md);
+    }
+
+    .area-header {
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .area-icon-pin {
+      width: 42px;
+      height: 42px;
+    }
+
+    .area-card-title {
+      font-size: 1.15rem;
+    }
+
+    .area-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .area-services-box {
+      padding: 0.75rem 0.85rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .area-services-label {
+      font-size: 0.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .area-service-tag {
+      font-size: 0.775rem;
+      padding: 0.2rem 0.55rem;
+    }
+
+    .area-whatsapp-btn {
+      padding: 0.75rem 0.85rem;
+      font-size: 0.9rem;
+    }
+
+    .cta-banner-section {
+      padding-block: 2.75rem;
+    }
+
+    .cta-banner-desc {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-banner-actions {
+      flex-direction: column;
+      align-items: stretch;
+      max-width: 340px;
+      margin-inline: auto;
+      gap: 0.75rem;
+    }
+
+    .cta-banner-actions .btn {
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      white-space: normal;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .area-card {
+      padding: 1.15rem 1rem;
+    }
+
+    .area-icon-pin {
+      width: 38px;
+      height: 38px;
+    }
+
+    .area-card-title {
+      font-size: 1.05rem;
+    }
+  }
+</style>

@@ -1,0 +1,340 @@
+---
+import { siteData } from '../data/siteData';
+---
+
+<div class="calculator-card" id="quoteCalculator">
+  <div class="calc-header">
+    <div class="calc-badge">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+        <line x1="8" y1="6" x2="16" y2="6"></line>
+        <line x1="16" y1="14" x2="16" y2="18"></line>
+        <path d="M16 10h.01"></path>
+        <path d="M12 10h.01"></path>
+        <path d="M8 10h.01"></path>
+        <path d="M12 14h.01"></path>
+        <path d="M8 14h.01"></path>
+        <path d="M12 18h.01"></path>
+        <path d="M8 18h.01"></path>
+      </svg>
+      حاسبة تقدير التكلفة الفورية
+    </div>
+    <h3 class="calc-title">احسب تكلفة مطبخك بالدمام تقريبياً</h3>
+    <p class="calc-subtitle">اختر الخدمة ومواصفات مطبخك للحصول على تقدير فوري وإرساله مباشرة للفني لمعاينة سريعة</p>
+  </div>
+
+  <form id="calcForm" class="calc-form">
+    <!-- Step 1: Service Type -->
+    <div class="form-group">
+      <label class="form-label" for="calcService">نوع الخدمة المطلوبة:</label>
+      <select id="calcService" class="form-select" required>
+        <option value="تركيب مطبخ جديد" data-base="300">تركيب مطبخ جديد (جاهز أو تفصيل)</option>
+        <option value="صيانة وتجديد مطبخ" data-base="200" selected>صيانة وتجديد مطبخ شاملة</option>
+        <option value="فك ونقل وتعديل مطبخ" data-base="450">فك ونقل وتعديل مقاسات المطبخ</option>
+        <option value="قص وتعديل رخام ومجالي" data-base="250">قص وتعديل رخام وحوض مغسلة</option>
+        <option value="تبديل مفصلات وسحابات هيدروليك" data-base="150">تبديل مفصلات هيدروليك وسحابات أدراج</option>
+        <option value="تجديد واجهات ودرف المطبخ" data-base="350">تجديد أبواب ودرف المطبخ وتغيير اللون</option>
+      </select>
+    </div>
+
+    <!-- Step 2: Kitchen Size -->
+    <div class="form-group">
+      <label class="form-label" for="calcSize">حجم المطبخ التقريبي:</label>
+      <select id="calcSize" class="form-select">
+        <option value="صغير (أقل من 3 متر طولي)" data-mult="1">مطبخ صغير (شقة - أقل من 3 أمتار)</option>
+        <option value="متوسط (3 إلى 5 أمتار)" data-mult="1.5" selected>مطبخ متوسط (3 إلى 5 أمتار)</option>
+        <option value="كبير (6 أمتار فأكثر - فيلا)" data-mult="2.2">مطبخ كبير (فيلا - 6 أمتار فأكثر)</option>
+      </select>
+    </div>
+
+    <!-- Step 3: Location in Eastern Province -->
+    <div class="form-group">
+      <label class="form-label" for="calcLocation">الحي أو المدينة بالشرقية:</label>
+      <input type="text" id="calcLocation" class="form-input" placeholder="مثال: حي الشاطئ - الدمام أو الخبر" value="الدمام" />
+    </div>
+
+    <!-- Extras Checkboxes -->
+    <div class="form-group">
+      <label class="form-label">إضافات مرغوبة:</label>
+      <div class="checkbox-grid">
+        <label class="check-item">
+          <input type="checkbox" id="addHinges" data-cost="120" />
+          <span>مفصلات إيطالية هيدروليك أصلية</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" id="addSilicon" data-cost="80" checked />
+          <span>عزل سيليكون ضد الرطوبة والعفن</span>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" id="addMarblePolish" data-cost="150" />
+          <span>جلي وتلميع سطح الرخام</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Live Estimate Box -->
+    <div class="estimate-result">
+      <div class="estimate-info">
+        <span class="estimate-label">التكلفة التقديرية التقريبية:</span>
+        <div class="estimate-price">
+          <span id="priceDisplay">380 - 550</span>
+          <span class="currency">ريال سعودي</span>
+        </div>
+      </div>
+      <p class="estimate-note">* السعر النهائي يحدده الفني بعد المعاينة الميدانية المجانية</p>
+    </div>
+
+    <!-- Submit Button to WhatsApp -->
+    <button type="button" id="sendWhatsAppQuote" class="btn btn-lg btn-whatsapp calc-submit-btn">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.963.54 1.761.884 2.796.885h.005c3.179 0 5.765-2.587 5.765-5.766 0-3.18-2.586-5.771-5.77-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.072-2.18-.543-1.637-.677-2.673-2.339-2.755-2.449-.079-.109-.652-.868-.652-1.652 0-.784.411-1.17.558-1.328.146-.159.32-.198.427-.198.106 0 .213.002.307.006.1.006.234-.038.366.279.136.327.464 1.134.505 1.217.041.082.069.178.014.288-.055.109-.083.178-.165.274-.082.096-.173.214-.247.288-.082.083-.169.172-.072.337.096.166.428.705.918 1.141.632.562 1.164.737 1.33.82.165.083.262.069.359-.041.097-.11.412-.48.522-.646.11-.166.22-.138.371-.083.152.055.962.454 1.127.536.165.083.275.124.316.193.041.07.041.405-.103.81z"/>
+      </svg>
+      <span>إرسال المواصفات للفني عبر الواتساب فوراً</span>
+    </button>
+  </form>
+</div>
+
+<style>
+  .calculator-card {
+    background: #FFFFFF;
+    border: 2px solid rgba(197, 168, 128, 0.35);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-xl);
+    max-width: 720px;
+    margin-inline: auto;
+  }
+
+  .calc-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .calc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-primary-light);
+    color: var(--color-primary-hover);
+    padding: 0.35rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .calc-title {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .calc-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+
+  .calc-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-label {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--color-dark);
+  }
+
+  .form-select, .form-input {
+    width: 100%;
+    padding: 0.85rem 1.1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-dark);
+    background: var(--color-bg);
+    transition: all var(--transition-fast);
+  }
+
+  .form-select:focus, .form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.25);
+  }
+
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.925rem;
+    transition: background var(--transition-fast);
+  }
+
+  .check-item:hover {
+    background: var(--color-primary-light);
+  }
+
+  .check-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+  }
+
+  /* Estimate Result Box */
+  .estimate-result {
+    background: linear-gradient(135deg, var(--color-dark), var(--color-dark-light));
+    color: #FFFFFF;
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .estimate-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .estimate-label {
+    color: #94A3B8;
+    font-size: 0.95rem;
+  }
+
+  .estimate-price {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-accent-gold);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .currency {
+    font-size: 1rem;
+    color: #E2E8F0;
+    font-weight: 600;
+  }
+
+  .estimate-note {
+    font-size: 0.8rem;
+    color: #94A3B8;
+    margin-top: 0.5rem;
+  }
+
+  .calc-submit-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .calculator-card {
+      padding: 1.5rem 1rem;
+    }
+    .estimate-price {
+      font-size: 1.75rem;
+    }
+  }
+</style>
+
+<script>
+  function updateEstimate() {
+    const serviceSelect = document.getElementById('calcService') as HTMLSelectElement;
+    const sizeSelect = document.getElementById('calcSize') as HTMLSelectElement;
+    const priceDisplay = document.getElementById('priceDisplay');
+    const addHinges = document.getElementById('addHinges') as HTMLInputElement;
+    const addSilicon = document.getElementById('addSilicon') as HTMLInputElement;
+    const addMarblePolish = document.getElementById('addMarblePolish') as HTMLInputElement;
+
+    if (!serviceSelect || !sizeSelect || !priceDisplay) return;
+
+    const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
+    const baseCost = parseFloat(selectedOption.getAttribute('data-base') || '200');
+
+    const selectedSize = sizeSelect.options[sizeSelect.selectedIndex];
+    const mult = parseFloat(selectedSize.getAttribute('data-mult') || '1.5');
+
+    let total = baseCost * mult;
+
+    if (addHinges && addHinges.checked) total += 120;
+    if (addSilicon && addSilicon.checked) total += 80;
+    if (addMarblePolish && addMarblePolish.checked) total += 150;
+
+    const minPrice = Math.round(total * 0.9);
+    const maxPrice = Math.round(total * 1.25);
+
+    priceDisplay.textContent = `${minPrice} - ${maxPrice}`;
+  }
+
+  // Bind change listeners
+  document.getElementById('calcService')?.addEventListener('change', updateEstimate);
+  document.getElementById('calcSize')?.addEventListener('change', updateEstimate);
+  document.getElementById('addHinges')?.addEventListener('change', updateEstimate);
+  document.getElementById('addSilicon')?.addEventListener('change', updateEstimate);
+  document.getElementById('addMarblePolish')?.addEventListener('change', updateEstimate);
+
+  // Initial calculation
+  updateEstimate();
+
+  // WhatsApp Button Click
+  const sendBtn = document.getElementById('sendWhatsAppQuote');
+  sendBtn?.addEventListener('click', () => {
+    const serviceSelect = document.getElementById('calcService') as HTMLSelectElement;
+    const sizeSelect = document.getElementById('calcSize') as HTMLSelectElement;
+    const locationInput = document.getElementById('calcLocation') as HTMLInputElement;
+    const priceDisplay = document.getElementById('priceDisplay');
+    const addHinges = document.getElementById('addHinges') as HTMLInputElement;
+    const addSilicon = document.getElementById('addSilicon') as HTMLInputElement;
+    const addMarblePolish = document.getElementById('addMarblePolish') as HTMLInputElement;
+
+    const service = serviceSelect?.value || 'صيانة وتجديد مطبخ';
+    const size = sizeSelect?.value || 'متوسط';
+    const location = locationInput?.value || 'الدمام';
+    const priceRange = priceDisplay?.textContent || 'حسب المعاينة';
+
+    const extras = [];
+    if (addHinges?.checked) extras.push('مفصلات إيطالي هيدروليك');
+    if (addSilicon?.checked) extras.push('عزل سيليكون ضد الرطوبة');
+    if (addMarblePolish?.checked) extras.push('جلي وتلميع رخام');
+    const extrasText = extras.length > 0 ? extras.join(' + ') : 'بدون إضافات';
+
+    const text = `السلام عليكم ورحمة الله وبركاته،
+أرغب في الاستفسار عن خدمة مطبخ بالدمام:
+- الخدمة: ${service}
+- الحجم: ${size}
+- الموقع/الحي: ${location}
+- الإضافات: ${extrasText}
+- التقدير التقريبي للحاسبة: ${priceRange} ريال
+
+يرجى إفادتي بإمكانية المعاينة وعرض السعر المناسب وشكراً لك.`;
+
+    const encoded = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/966535486325?text=${encoded}`;
+    window.open(whatsappUrl, '_blank');
+  });
+</script>

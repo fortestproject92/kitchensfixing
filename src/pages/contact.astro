@@ -1,0 +1,534 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { siteData } from '../data/siteData';
+
+const breadcrumbs = [
+  { name: "تواصل معنا", url: "/contact" }
+];
+---
+
+<MainLayout
+  title="تواصل معنا | فني تركيب وصيانة وفك مطابخ في الدمام 0535486325"
+  description="تواصل مباشرة مع فني مطابخ الدمام: اتصال هاتفي 0535486325 أو محادثة واتساب فورية أو عبر انستغرام. معاينة سريعة لكافة أحياء الدمام والخبر والظهران."
+  breadcrumbs={breadcrumbs}
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container text-center">
+      <span class="section-badge">نحن في خدمتك دائماً</span>
+      <h1 class="page-title">تواصل مع فني مطابخ الدمام</h1>
+      <p class="page-lead">
+        يسعدنا استقبال اتصالاتكم واستفساراتكم حول صيانة وتركيب وتعديل المطابخ بالدمام والخبر على مدار الساعة.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Grid -->
+  <section class="section contact-section">
+    <div class="container">
+      <div class="grid-2 contact-grid">
+        <!-- Contact Information Cards -->
+        <div class="contact-info-column">
+          <span class="section-badge">بيانات التواصل المباشر</span>
+          <h2 class="section-title">اتصل أو راسلنا للحصول على تسعيرة فورية</h2>
+          <p class="section-desc" style="text-align: right; margin-bottom: 2rem;">
+            فني المطابخ متاح للإجابة المباشرة، المعاينة الميدانية، وتقديم أفضل النصائح الفنية والحلول الاقتصادية لمطبخك.
+          </p>
+
+          <div class="contact-channels">
+            <!-- Channel 1: Phone -->
+            <a href={`tel:${siteData.phoneInternational}`} class="channel-card phone-card">
+              <div class="channel-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="channel-body">
+                <span class="channel-title">الاتصال الهاتفي المباشر:</span>
+                <span class="channel-val phone-txt" dir="ltr">{siteData.phoneDisplay}</span>
+                <span class="channel-sub">متاح يومياً من 8 صباحاً حتى 11 مساءً</span>
+              </div>
+            </a>
+
+            <!-- Channel 2: WhatsApp -->
+            <a href={siteData.whatsappUrl} target="_blank" rel="noopener noreferrer" class="channel-card whatsapp-card">
+              <div class="channel-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.963.54 1.761.884 2.796.885h.005c3.179 0 5.765-2.587 5.765-5.766 0-3.18-2.586-5.771-5.77-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.072-2.18-.543-1.637-.677-2.673-2.339-2.755-2.449-.079-.109-.652-.868-.652-1.652 0-.784.411-1.17.558-1.328.146-.159.32-.198.427-.198.106 0 .213.002.307.006.1.006.234-.038.366.279.136.327.464 1.134.505 1.217.041.082.069.178.014.288-.055.109-.083.178-.165.274-.082.096-.173.214-.247.288-.082.083-.169.172-.072.337.096.166.428.705.918 1.141.632.562 1.164.737 1.33.82.165.083.262.069.359-.041.097-.11.412-.48.522-.646.11-.166.22-.138.371-.083.152.055.962.454 1.127.536.165.083.275.124.316.193.041.07.041.405-.103.81z"/>
+                </svg>
+              </div>
+              <div class="channel-body">
+                <span class="channel-title">محادثة واتساب فورية:</span>
+                <span class="channel-val">إرسال الصور والفيديوهات والاستفسار</span>
+                <span class="channel-sub">استجابة سريعة وتحديد موعد معاينة</span>
+              </div>
+            </a>
+
+            <!-- Channel 3: Instagram -->
+            <a href={siteData.instagramUrl} target="_blank" rel="noopener noreferrer" class="channel-card instagram-card">
+              <div class="channel-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </div>
+              <div class="channel-body">
+                <span class="channel-title">حساب الانستغرام الرسمي:</span>
+                <span class="channel-val" dir="ltr">@aluminiumtechnician</span>
+                <span class="channel-sub">شاهد أحدث الفيديوهات ومقاطع التجديد</span>
+              </div>
+            </a>
+
+            <!-- Channel 4: Address -->
+            <div class="channel-card location-card">
+              <div class="channel-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="channel-body">
+                <span class="channel-title">الموقع ونطاق التغطية:</span>
+                <span class="channel-val">{siteData.address}</span>
+                <span class="channel-sub">نصلك في كافة أحياء الدمام، الخبر، والظهران</span>
+              </div>
+            </div>
+
+            <!-- Official Card Preview -->
+            <div class="official-card-banner">
+              <img src="/images/fani-matabikh-dammam.jpg" alt="بطاقة وهوية فني صيانة مطابخ الدمام الرسمية" class="contact-brand-card-img" />
+              <div class="official-card-caption">
+                <span class="badge badge-gold">البطاقة الرسمية المعتمدة</span>
+                <span dir="ltr" class="official-card-web">www.kitchenrepair.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Form -->
+        <div class="contact-form-column">
+          <div class="card form-card">
+            <h3 class="form-title">حجز موعد معاينة أو طلب تسعيرة</h3>
+            <p class="form-subtitle">املأ النموذج وسنقوم بالرد الفوري عليك لتأكيد الموعد</p>
+
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <label for="contactName" class="form-label">الاسم الكريم:</label>
+                <input type="text" id="contactName" class="form-input" placeholder="مثال: عبد الله الغامدي" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contactPhone" class="form-label">رقم الجوال:</label>
+                <input type="tel" id="contactPhone" class="form-input" placeholder="05XXXXXXXX (مثال)" dir="rtl" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contactNeighborhood" class="form-label">الحي / المدينة:</label>
+                <input type="text" id="contactNeighborhood" class="form-input" placeholder="مثال: حي الشاطئ، الدمام أو الخبر" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contactService" class="form-label">الخدمة المطلوبة:</label>
+                <select id="contactService" class="form-select">
+                  <option value="صيانة وتجديد مطبخ">صيانة وتجديد مطبخ</option>
+                  <option value="تركيب مطبخ جديد">تركيب مطبخ جديد وتفصيل</option>
+                  <option value="فك ونقل وتعديل مقاسات">فك ونقل وتعديل مقاسات المطبخ</option>
+                  <option value="قص وتعديل رخام ومجالي">قص وتعديل رخام ومجالي ساقطة</option>
+                  <option value="تبديل مفصلات وسحابات هيدروليك">تبديل مفصلات هيدروليك وسحابات أدراج</option>
+                  <option value="تجديد واجهات المطبخ ودرف الكلادينج">تجديد واجهات ودرف المطبخ</option>
+                  <option value="أخرى">خدمة أخرى (يرجى كتابتها في التفاصيل)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contactNotes" class="form-label">تفاصيل إضافية أو ملاحظات:</label>
+                <textarea id="contactNotes" class="form-textarea" rows="3" placeholder="اكتب وصفاً مختصراً لمشكلة المطبخ أو متطلباتك..."></textarea>
+              </div>
+
+              <button type="button" id="submitContactBtn" class="btn btn-lg btn-whatsapp submit-contact-btn" style="width: 100%;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.963.54 1.761.884 2.796.885h.005c3.179 0 5.765-2.587 5.765-5.766 0-3.18-2.586-5.771-5.77-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.072-2.18-.543-1.637-.677-2.673-2.339-2.755-2.449-.079-.109-.652-.868-.652-1.652 0-.784.411-1.17.558-1.328.146-.159.32-.198.427-.198.106 0 .213.002.307.006.1.006.234-.038.366.279.136.327.464 1.134.505 1.217.041.082.069.178.014.288-.055.109-.083.178-.165.274-.082.096-.173.214-.247.288-.082.083-.169.172-.072.337.096.166.428.705.918 1.141.632.562 1.164.737 1.33.82.165.083.262.069.359-.041.097-.11.412-.48.522-.646.11-.166.22-.138.371-.083.152.055.962.454 1.127.536.165.083.275.124.316.193.041.07.041.405-.103.81z"/>
+                </svg>
+                <span>إرسال الطلب للفني عبر الواتساب فوراً</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Map Section -->
+  <section class="section map-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">موقع الخدمة</span>
+        <h2 class="section-title">نخدم مدينة الدمام وكافة مدن المنطقة الشرقية</h2>
+        <p class="section-desc">المقر الرئيسي: الدمام | التغطية الميدانية: الدمام، الخبر، الظهران، سيهات، والقطيف</p>
+      </div>
+
+      <div class="map-embed-card">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114389.28913919426!2d50.04369408092285!3d26.420653696515814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49e5d4cb05c105%3A0x6b4457e4e08f5127!2z2KfZhNiv2YXYp9mF!5e0!3m2!1sar!2ssa!4v1717000000000!5m2!1sar!2ssa"
+          width="100%"
+          height="400"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="خريطة تغطية فني مطابخ الدمام"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .page-header {
+    background: linear-gradient(135deg, var(--color-dark), var(--color-dark-light));
+    color: #FFFFFF;
+    padding-block: 4.5rem 4rem;
+    border-bottom: 3px solid var(--color-primary);
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+  }
+
+  .page-lead {
+    font-size: 1.15rem;
+    color: #CBD5E1;
+    max-width: 780px;
+    margin-inline: auto;
+    line-height: 1.7;
+  }
+
+  .contact-section {
+    background: var(--color-bg);
+  }
+
+  .contact-grid {
+    align-items: flex-start;
+    gap: 3rem;
+  }
+
+  .contact-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .channel-card {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .channel-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
+  }
+
+  .channel-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .phone-card .channel-icon {
+    background: #E0F2FE;
+    color: var(--color-call);
+  }
+
+  .whatsapp-card .channel-icon {
+    background: #DCFCE7;
+    color: var(--color-whatsapp);
+  }
+
+  .instagram-card .channel-icon {
+    background: #FCE7F3;
+    color: #E1306C;
+  }
+
+  .location-card .channel-icon {
+    background: var(--color-primary-light);
+    color: var(--color-primary-hover);
+  }
+
+  .contact-info-column,
+  .contact-form-column {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .channel-body {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .channel-title {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .channel-val {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-dark);
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .channel-val.phone-txt {
+    color: var(--color-call);
+    font-size: 1.35rem;
+  }
+
+  .channel-sub {
+    font-size: 0.825rem;
+    color: var(--color-text-light);
+  }
+
+  .official-card-banner {
+    margin-top: 1.5rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1.5px solid var(--color-gold-border);
+    box-shadow: var(--shadow-md);
+    background: var(--color-dark);
+  }
+
+  .contact-brand-card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .official-card-caption {
+    padding: 0.75rem 1rem;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .official-card-web {
+    color: var(--color-text-muted);
+    font-weight: 600;
+    word-break: break-all;
+  }
+
+  .form-card {
+    background: #FFFFFF;
+    padding: 2.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.925rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-label {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-dark);
+  }
+
+  .form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    background: var(--color-bg);
+    color: var(--color-dark);
+    transition: all var(--transition-fast);
+  }
+
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.25);
+  }
+
+  .submit-contact-btn {
+    white-space: normal;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .map-section {
+    background: #FFFFFF;
+  }
+
+  .map-embed-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--color-border);
+  }
+
+  .map-embed-card iframe {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .page-header {
+      padding-block: 2.75rem 2.25rem;
+    }
+
+    .page-title {
+      font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+    }
+
+    .page-lead {
+      font-size: 0.975rem;
+      line-height: 1.6;
+    }
+
+    .form-card {
+      padding: 1.5rem 1.15rem;
+      border-radius: var(--radius-md);
+    }
+
+    .form-title {
+      font-size: 1.25rem;
+    }
+
+    .form-subtitle {
+      font-size: 0.875rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      font-size: 16px; /* Prevents auto-zoom on mobile */
+      padding: 0.75rem 0.85rem;
+    }
+
+    .submit-contact-btn {
+      padding: 0.9rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    .map-embed-card iframe {
+      height: 280px;
+    }
+
+    .map-section .section-title-wrap {
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .channel-card {
+      padding: 1rem 1rem;
+      gap: 0.85rem;
+    }
+
+    .channel-icon {
+      width: 44px;
+      height: 44px;
+    }
+
+    .channel-title {
+      font-size: 0.8rem;
+    }
+
+    .channel-val {
+      font-size: 1rem;
+    }
+
+    .channel-val.phone-txt {
+      font-size: 1.15rem;
+    }
+
+    .channel-sub {
+      font-size: 0.775rem;
+    }
+
+    .official-card-caption {
+      flex-direction: column;
+      gap: 0.4rem;
+      align-items: center;
+      text-align: center;
+      padding: 0.65rem 0.75rem;
+    }
+  }
+</style>
+
+<script>
+  const submitBtn = document.getElementById('submitContactBtn');
+  submitBtn?.addEventListener('click', () => {
+    const nameInput = document.getElementById('contactName') as HTMLInputElement;
+    const phoneInput = document.getElementById('contactPhone') as HTMLInputElement;
+    const neighborInput = document.getElementById('contactNeighborhood') as HTMLInputElement;
+    const serviceSelect = document.getElementById('contactService') as HTMLSelectElement;
+    const notesInput = document.getElementById('contactNotes') as HTMLTextAreaElement;
+
+    const name = nameInput?.value.trim() || 'عميل كريم';
+    const phone = phoneInput?.value.trim() || 'غير محدد';
+    const location = neighborInput?.value.trim() || 'الدمام';
+    const service = serviceSelect?.value || 'صيانة وتجديد مطبخ';
+    const notes = notesInput?.value.trim() || 'لا توجد ملاحظات إضافية';
+
+    const text = `السلام عليكم ورحمة الله،
+طلب موعد معاينة / تسعيرة لمطبخ في الدمام:
+- الاسم: ${name}
+- الجوال: ${phone}
+- الحي/المدينة: ${location}
+- الخدمة المطلوبة: ${service}
+- الملاحظات: ${notes}
+
+يرجى إفادتي بأقرب موعد متاح وشكراً جزيلاً.`;
+
+    const encoded = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/966535486325?text=${encoded}`;
+    window.open(whatsappUrl, '_blank');
+  });
+</script>

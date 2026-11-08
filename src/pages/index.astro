@@ -1,0 +1,1352 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { siteData } from "../data/siteData";
+import { servicesData } from "../data/servicesData";
+import { galleryData } from "../data/galleryData";
+import { testimonialsData } from "../data/testimonialsData";
+import { faqData } from "../data/faqData";
+import QuoteCalculator from "../components/QuoteCalculator.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+import { blogData } from "../data/blogData";
+
+const homeFaq = faqData.slice(0, 6);
+const homeArticles = blogData.slice(0, 3);
+---
+
+<MainLayout
+  title="تركيب وصيانة وفك مطابخ في الدمام | فني مطابخ معتمد 0535486325"
+  description="أفضل فني تركيب وصيانة وفك ونقل مطابخ في الدمام والخبر. صيانة مطابخ المنيوم وخشب، قص وتعديل رخام طبيعي وصناعي، استبدال مفصلات هيدروليك إيطالية وسحابات أدراج رمان بلي بأفضل الأسعار وضمان معتمد."
+  faqSchema={homeFaq}
+>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-badge animate-fade-in">
+        <span class="badge-icon">★</span>
+        <span>فني معتمد • خبرة 12+ عاماً بالدمام والمنطقة الشرقية</span>
+      </div>
+
+      <h1 class="hero-title">
+        تركيب وصيانة وفك مطابخ في الدمام
+        <span class="hero-title-accent"
+          >التزام تام بالمواعيد وسرعة في الإنجاز
+        </span>
+      </h1>
+
+      <p class="hero-lead">
+        خدمات متكاملة واحترافية للمطابخ الألمنيوم والخشب: فك ونقل وتعديل مقاسات،
+        قص وتفصيل رخام طبيعي وصناعي، استبدال مفصلات هيدروليك إيطالية صامتة،
+        وتجديد واجهات الدواليب بأسعار منافسة ومعاينة فورية.
+      </p>
+
+      <!-- Hero Action Buttons -->
+      <div class="hero-actions">
+        <a
+          href={`tel:${siteData.phoneInternational}`}
+          class="btn btn-lg btn-primary"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+            ></path>
+          </svg>
+          <span>اتصل الآن: {siteData.phoneDisplay}</span>
+        </a>
+
+        <a
+          href={siteData.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-lg btn-whatsapp"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.963.54 1.761.884 2.796.885h.005c3.179 0 5.765-2.587 5.765-5.766 0-3.18-2.586-5.771-5.77-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.072-2.18-.543-1.637-.677-2.673-2.339-2.755-2.449-.079-.109-.652-.868-.652-1.652 0-.784.411-1.17.558-1.328.146-.159.32-.198.427-.198.106 0 .213.002.307.006.1.006.234-.038.366.279.136.327.464 1.134.505 1.217.041.082.069.178.014.288-.055.109-.083.178-.165.274-.082.096-.173.214-.247.288-.082.083-.169.172-.072.337.096.166.428.705.918 1.141.632.562 1.164.737 1.33.82.165.083.262.069.359-.041.097-.11.412-.48.522-.646.11-.166.22-.138.371-.083.152.055.962.454 1.127.536.165.083.275.124.316.193.041.07.041.405-.103.81z"
+            ></path>
+          </svg>
+          <span>تواصل واتساب فوري</span>
+        </a>
+
+        <a href="#calculator" class="btn btn-lg btn-secondary">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+            <line x1="8" y1="6" x2="16" y2="6"></line>
+            <line x1="16" y1="14" x2="16" y2="18"></line>
+            <path d="M16 10h.01"></path>
+            <path d="M12 10h.01"></path>
+            <path d="M8 10h.01"></path>
+            <path d="M12 14h.01"></path>
+            <path d="M8 14h.01"></path>
+            <path d="M12 18h.01"></path>
+            <path d="M8 18h.01"></path>
+          </svg>
+          <span>حاسبة التكلفة</span>
+        </a>
+      </div>
+
+      <!-- Trust Features Bar -->
+      <div class="hero-trust-bar">
+        <div class="trust-item">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--color-accent-gold)"
+            stroke-width="2.5"
+            ><polyline points="20 6 9 17 4 12"></polyline></svg
+          >
+          <span>معاينة فورية بالدمام والخبر</span>
+        </div>
+        <div class="trust-item">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--color-accent-gold)"
+            stroke-width="2.5"
+            ><polyline points="20 6 9 17 4 12"></polyline></svg
+          >
+          <span>مفصلات إيطالية وألمانية أصلية</span>
+        </div>
+        <div class="trust-item">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--color-accent-gold)"
+            stroke-width="2.5"
+            ><polyline points="20 6 9 17 4 12"></polyline></svg
+          >
+          <span>وزن ليزري ثلاثي الأبعاد</span>
+        </div>
+        <div class="trust-item">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--color-accent-gold)"
+            stroke-width="2.5"
+            ><polyline points="20 6 9 17 4 12"></polyline></svg
+          >
+          <span>ضمان شامل على كافة الأعمال</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Stats Counter -->
+  <section class="stats-section">
+    <div class="container stats-grid">
+      <div class="stat-card">
+        <span class="stat-number">{siteData.stats.completedProjects}</span>
+        <span class="stat-label">مطبخ تم تركيبه وصيانته بالشرقية</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">{siteData.stats.yearsExperience}</span>
+        <span class="stat-label">سنوات خبرة متواصلة في المطابخ</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">{siteData.stats.satisfiedClients}</span>
+        <span class="stat-label">نسبة رضا العملاء والتقييم الإيجابي</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">{siteData.stats.responseMinutes}</span>
+        <span class="stat-label">متوسط سرعة الرد وتحديد موعد المعاينة</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section services-preview-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">خدماتنا التخصصية</span>
+        <h2 class="section-title">خدمات تركيب وصيانة المطابخ في الدمام</h2>
+        <p class="section-desc">
+          حلول هندسية متكاملة لجميع أنواع المطابخ الألمنيوم، الخشبية، الكلادينج،
+          والصاج الألماني؛ بأيدي فنيين محترفين ومعدات متطورة.
+        </p>
+      </div>
+
+      <div class="grid-3 services-grid">
+        {
+          servicesData.map((service) => (
+            <div class="service-card">
+              <div class="service-img-wrap">
+                <img src={service.image} alt={service.title} loading="lazy" />
+                <div class="service-price-tag">{service.startingPrice}</div>
+              </div>
+              <div class="service-content">
+                <h3 class="service-title">
+                  <a href={`/services#${service.id}`}>{service.title}</a>
+                </h3>
+                <p class="service-desc">{service.shortDesc}</p>
+                <ul class="service-feature-list">
+                  {service.features.slice(0, 3).map((feature) => (
+                    <li>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="var(--color-primary)"
+                        stroke-width="2.5"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div class="service-card-actions">
+                  <a
+                    href={`/services#${service.id}`}
+                    class="btn btn-sm btn-secondary"
+                    style="flex: 1;"
+                  >
+                    تفاصيل الخدمة
+                  </a>
+                  <a
+                    href={`https://wa.me/966535486325?text=${encodeURIComponent(`السلام عليكم، أرغب في حجز خدمة: ${service.title} في الدمام`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-sm btn-whatsapp"
+                  >
+                    طلب تسعيرة
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="section-bottom-cta">
+        <a href="/services" class="btn btn-primary">عرض جميع الخدمات بالتفصيل</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section why-us-section">
+    <div class="container">
+      <div class="grid-2 why-us-grid">
+        <div class="why-us-info">
+          <span class="section-badge">لماذا نحن الخيار الأفضل؟</span>
+          <h2 class="section-title">
+            خبرة ودقة هندسية في صيانة وتركيب مطبخك بالدمام
+          </h2>
+          <p class="section-desc" style="text-align: right;">
+            المطبخ هو قلب كل منزل في المنطقة الشرقية، وأي عمل فيه يتطلب عناية
+            فائقة للحفاظ على استثمارك. نحن نتميز عن غيرنا بعدة ركائز أساسية
+            تجعلنا خيارك الأمثل:
+          </p>
+
+          <div class="feature-item-list">
+            <div class="feature-row">
+              <div class="feature-icon-box">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  ><circle cx="12" cy="12" r="10"></circle><polyline
+                    points="12 6 12 12 16 14"></polyline></svg
+                >
+              </div>
+              <div>
+                <h4>التزام تام بالمواعيد وسرعة في الإنجاز</h4>
+                <p>
+                  نصلك في الموعد المحدد وننجز أعمال الفك والتركيب في أقل وقت
+                  ممكن دون إرباك جدول أسرتك اليومي.
+                </p>
+              </div>
+            </div>
+
+            <div class="feature-row">
+              <div class="feature-icon-box">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                  ></path></svg
+                >
+              </div>
+              <div>
+                <h4>قطع غيار أصلية ومفصلات إيطالية معتمدة</h4>
+                <p>
+                  لا نستخدم القطع المقلدة أبداً؛ مفصلاتنا هيدروليكية أصلية من
+                  ماركات عالمية تقاوم رطوبة وأملاح الشرقية مع ضمان حتى 5 سنوات.
+                </p>
+              </div>
+            </div>
+
+            <div class="feature-row">
+              <div class="feature-icon-box">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  ><circle cx="12" cy="12" r="3"></circle><path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+                  ></path></svg
+                >
+              </div>
+              <div>
+                <h4>أجهزة وزن ليزرية وقص مائي دقيق</h4>
+                <p>
+                  نضمن عدم وجود أي ميول في الدواليب أو تسربات خلف الرخام، مع
+                  تثبيت متين يتحمل الأوزان الثقيلة بأمان تام.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-us-image-card">
+          <img
+            src="/images/kitchen-luxury-white.jpg"
+            alt="مطبخ ألمنيوم فخم تم تجديده بالدمام"
+            class="main-why-img"
+          />
+          <div class="why-us-badge">
+            <span class="badge-title">ضمان 5 سنوات</span>
+            <span class="badge-sub">على المفصلات الهيدروليكية الأصلية</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio / Gallery Preview -->
+  <section class="section gallery-preview-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">معرض المشاريع</span>
+        <h2 class="section-title">أحدث أعمالنا في مطابخ الدمام والخبر</h2>
+        <p class="section-desc">
+          شاهد عينة من المطابخ التي قمنا بتركيبها وصيانتها وتجديد أسطح الرخام
+          والدواليب لها في مختلف أحياء المنطقة الشرقية.
+        </p>
+      </div>
+
+      <div class="grid-3 gallery-preview-grid">
+        {
+          galleryData.slice(0, 3).map((item) => (
+            <div class="gallery-card">
+              <div class="gallery-img-container">
+                <img src={item.image} alt={item.title} loading="lazy" />
+                <span class="gallery-category-pill">{item.categoryName}</span>
+              </div>
+              <div class="gallery-info">
+                <div class="gallery-location">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <>
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </>
+                  </svg>
+                  <span>{item.location}</span>
+                </div>
+                <h3 class="gallery-card-title">{item.title}</h3>
+                <p class="gallery-desc">{item.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="section-bottom-cta">
+        <a href="/gallery" class="btn btn-secondary"
+          >تصفح معرض الأعمال الكامل (6+ مشاريع)</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Cost Calculator Section -->
+  <!-- <section class="section calculator-section" id="calculator">
+    <div class="container">
+      <QuoteCalculator />
+    </div>
+  </section> -->
+
+  <!-- Testimonials Section -->
+  <section class="section testimonials-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">شهادات نعتز بها</span>
+        <h2 class="section-title">ماذا يقول عملاؤنا في الدمام والخبر؟</h2>
+        <p class="section-desc">
+          آراء وتجارب حقيقية لعملاء تم خدمتهم في مختلف أحياء المنطقة الشرقية
+        </p>
+      </div>
+
+      <div class="grid-2 testimonials-grid">
+        {
+          testimonialsData.map((test) => (
+            <div class="testimonial-card">
+              <div class="test-header">
+                <div class="test-user-info">
+                  <h4 class="test-name">{test.name}</h4>
+                  <span class="test-location">{test.location}</span>
+                </div>
+                <div
+                  class="test-stars"
+                  aria-label={`تقييم ${test.rating} من 5 نجوم`}
+                >
+                  {"★".repeat(test.rating)}
+                </div>
+              </div>
+              <div class="test-service-tag">{test.service}</div>
+              <p class="test-comment">"{test.comment}"</p>
+              <span class="test-date">{test.date}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section with Schema -->
+  <FAQAccordion items={homeFaq} />
+
+  <!-- Local Coverage Callout -->
+  <section class="section local-areas-section">
+    <div class="container text-center">
+      <span class="section-badge">تغطية شاملة للمنطقة الشرقية</span>
+      <h2 class="section-title">فني مطابخ بالقرب منك في كافة أحياء الدمام</h2>
+      <p
+        class="section-desc"
+        style="max-width: 700px; margin-inline: auto; margin-bottom: 2rem;"
+      >
+        سياراتنا المجهزة بقطع الغيار والمعدات تجوب يومياً أحياء: الشاطئ،
+        الفاخرية، المزروعية، الفيصلية، الجلوية، المنار، الحمراء، النورس،
+        بالإضافة لمدن الخبر والظهران وسيهات.
+      </p>
+
+      <div class="areas-pills">
+        <span class="area-pill">حي الشاطئ</span>
+        <span class="area-pill">حي الفاخرية</span>
+        <span class="area-pill">حي المزروعية</span>
+        <span class="area-pill">حي الفيصلية</span>
+        <span class="area-pill">حي الجلوية</span>
+        <span class="area-pill">حي الحمراء</span>
+        <span class="area-pill">حي المنار</span>
+        <span class="area-pill">مدينة الخبر</span>
+        <span class="area-pill">مدينة الظهران</span>
+        <span class="area-pill">مدينة سيهات</span>
+      </div>
+
+      <div style="margin-top: 2.5rem;">
+        <a href="/areas" class="btn btn-secondary"
+          >استكشف دليل مناطق الخدمة بالكامل</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Articles Section -->
+  <section class="section home-blog-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">نصائح ومقالات متخصصة</span>
+        <h2 class="section-title">أحدث مقالات وإرشادات فني مطابخ الدمام</h2>
+        <p class="section-desc">
+          اكتشف أفضل النصائح العملية لصيانة وتجديد المطابخ، طرق اختيار المفصلات
+          الأصلية، وحلول تعديل وقص الرخام.
+        </p>
+      </div>
+
+      <div class="grid-3 home-blog-grid">
+        {
+          homeArticles.map((post) => (
+            <article class="home-blog-card">
+              <a href={`/blog/${post.slug}`} class="home-blog-img-link">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  loading="lazy"
+                  class="home-blog-img"
+                />
+                <span class="home-blog-cat">{post.category}</span>
+              </a>
+              <div class="home-blog-body">
+                <div class="home-blog-meta">
+                  <span class="home-blog-date">{post.publishDate}</span>
+                  <span class="home-blog-read">{post.readTime}</span>
+                </div>
+                <h3 class="home-blog-title">
+                  <a href={`/blog/${post.slug}`}>{post.title}</a>
+                </h3>
+                <p class="home-blog-excerpt">{post.excerpt}</p>
+                <a href={`/blog/${post.slug}`} class="home-blog-more">
+                  <span>اقرأ المقال بالكامل</span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  >
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="/blog" class="btn btn-secondary"
+          >عرض جميع المقالات ({blogData.length} مقالات)</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Big Call to Action -->
+  <section class="cta-banner-section">
+    <div class="container cta-banner-content">
+      <h2 class="cta-banner-title">جاهز لتجديد أو صيانة مطبخك اليوم؟</h2>
+      <p class="cta-banner-desc">
+        لا تتردد في الاتصال بنا أو مراسلتنا على الواتساب للحصول على استشارة
+        مجانية وعرض سعر فوري ومعاينة سريعة.
+      </p>
+      <div class="cta-banner-actions">
+        <a
+          href={`tel:${siteData.phoneInternational}`}
+          class="btn btn-lg btn-primary"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            ><path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+            ></path></svg
+          >
+          <span>اتصال مباشر: {siteData.phoneDisplay}</span>
+        </a>
+        <a
+          href={siteData.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-lg btn-whatsapp"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.963.54 1.761.884 2.796.885h.005c3.179 0 5.765-2.587 5.765-5.766 0-3.18-2.586-5.771-5.77-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.072-2.18-.543-1.637-.677-2.673-2.339-2.755-2.449-.079-.109-.652-.868-.652-1.652 0-.784.411-1.17.558-1.328.146-.159.32-.198.427-.198.106 0 .213.002.307.006.1.006.234-.038.366.279.136.327.464 1.134.505 1.217.041.082.069.178.014.288-.055.109-.083.178-.165.274-.082.096-.173.214-.247.288-.082.083-.169.172-.072.337.096.166.428.705.918 1.141.632.562 1.164.737 1.33.82.165.083.262.069.359-.041.097-.11.412-.48.522-.646.11-.166.22-.138.371-.083.152.055.962.454 1.127.536.165.083.275.124.316.193.041.07.041.405-.103.81z"
+            ></path>
+          </svg>
+          <span>تواصل عبر الواتساب</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Hero Styles */
+  .hero-section {
+    position: relative;
+    background: url("/images/hero-kitchen.jpg") center/cover no-repeat;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    padding-block: 5rem 6rem;
+  }
+
+  .hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(15, 23, 42, 0.92) 0%,
+      rgba(15, 23, 42, 0.82) 50%,
+      rgba(15, 23, 42, 0.7) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 880px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(197, 168, 128, 0.2);
+    border: 1px solid rgba(197, 168, 128, 0.45);
+    color: var(--color-accent-gold);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.45rem 1.25rem;
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(8px);
+    margin-bottom: 1.5rem;
+  }
+
+  .badge-icon {
+    color: var(--color-accent-gold);
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title-accent {
+    display: block;
+    color: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-lead {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #e2e8f0;
+    margin-bottom: 2.5rem;
+    max-width: 760px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .hero-trust-bar {
+    display: flex;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 1.75rem;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    font-weight: 600;
+  }
+
+  /* Stats Section */
+  .stats-section {
+    background: var(--color-dark);
+    padding-block: 2.5rem;
+    border-bottom: 1px solid var(--color-dark-muted);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .stat-card {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .stat-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.75rem;
+    font-weight: 900;
+    color: var(--color-accent-gold);
+    line-height: 1.1;
+    margin-bottom: 0.35rem;
+  }
+
+  .stat-label {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+  /* Services Grid */
+  .services-preview-section {
+    background: var(--color-bg);
+  }
+
+  .service-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+  }
+
+  .service-img-wrap {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+  }
+
+  .service-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .service-card:hover .service-img-wrap img {
+    transform: scale(1.06);
+  }
+
+  .service-price-tag {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    color: var(--color-accent-gold);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.3rem 0.85rem;
+    border-radius: var(--radius-full);
+  }
+
+  .service-content {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .service-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-title a:hover {
+    color: var(--color-primary);
+  }
+
+  .service-desc {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    flex: 1;
+  }
+
+  .service-feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    padding-top: 1rem;
+  }
+
+  .service-feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-dark);
+    font-weight: 500;
+  }
+
+  .service-card-actions {
+    display: flex;
+    gap: 0.65rem;
+    margin-top: auto;
+  }
+
+  .section-bottom-cta {
+    text-align: center;
+    margin-top: 3.5rem;
+  }
+
+  /* Why Us */
+  .why-us-section {
+    background: #ffffff;
+  }
+
+  .why-us-grid {
+    align-items: center;
+  }
+
+  .feature-item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    margin-top: 2rem;
+  }
+
+  .feature-row {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .feature-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .feature-row h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .feature-row p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .why-us-image-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+  }
+
+  .main-why-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+  }
+
+  .why-us-badge {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    background: var(--color-dark);
+    color: #ffffff;
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-md);
+    border-right: 4px solid var(--color-primary);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .badge-title {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-accent-gold);
+  }
+
+  .badge-sub {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+  }
+
+  /* Gallery Cards */
+  .gallery-preview-section {
+    background: var(--color-surface-alt);
+  }
+
+  .gallery-card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .gallery-img-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  .gallery-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gallery-category-pill {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(15, 23, 42, 0.85);
+    color: #ffffff;
+    padding: 0.3rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 700;
+    backdrop-filter: blur(6px);
+  }
+
+  .gallery-info {
+    padding: 1.5rem;
+  }
+
+  .gallery-location {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .gallery-card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .gallery-desc {
+    color: var(--color-text-muted);
+    font-size: 0.925rem;
+    line-height: 1.6;
+  }
+
+  /* Testimonials */
+  .testimonials-section {
+    background: #ffffff;
+  }
+
+  .testimonial-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .test-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .test-name {
+    font-size: 1.15rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .test-location {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .test-stars {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+  }
+
+  .test-service-tag {
+    display: inline-block;
+    background: var(--color-primary-light);
+    color: var(--color-primary-hover);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1rem;
+  }
+
+  .test-comment {
+    color: var(--color-text);
+    line-height: 1.75;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .test-date {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    display: block;
+  }
+
+  /* Local Areas Section */
+  .local-areas-section {
+    background: var(--color-dark);
+    color: #ffffff;
+  }
+
+  .local-areas-section .section-title {
+    color: #ffffff;
+  }
+
+  .local-areas-section .section-desc {
+    color: #94a3b8;
+  }
+
+  .areas-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.85rem;
+    max-width: 850px;
+    margin-inline: auto;
+  }
+
+  .area-pill {
+    background: var(--color-dark-light);
+    border: 1px solid var(--color-dark-muted);
+    color: #e2e8f0;
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-full);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+  }
+
+  .area-pill:hover {
+    border-color: var(--color-primary);
+    color: var(--color-accent-gold);
+    transform: translateY(-2px);
+  }
+
+  /* CTA Banner */
+  .cta-banner-section {
+    background: linear-gradient(
+      135deg,
+      var(--color-dark) 0%,
+      var(--color-dark-light) 100%
+    );
+    color: #ffffff;
+    padding-block: 4.5rem;
+    text-align: center;
+    border-top: 1px solid var(--color-gold-border);
+    border-bottom: 1px solid var(--color-gold-border);
+  }
+
+  .cta-banner-content {
+    max-width: 780px;
+  }
+
+  .cta-banner-title {
+    font-size: clamp(1.85rem, 4vw, 2.75rem);
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .cta-banner-desc {
+    font-size: 1.15rem;
+    color: var(--color-accent-gold);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .cta-banner-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-banner-actions .btn-primary {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-accent)
+    );
+    color: #041126;
+    font-weight: 800;
+  }
+
+  .cta-banner-actions .btn-primary:hover {
+    background: linear-gradient(135deg, var(--color-primary-hover), #927140);
+    color: #ffffff;
+  }
+
+  /* Home Blog Cards */
+  .home-blog-section {
+    background: var(--color-bg);
+  }
+
+  .home-blog-card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-normal);
+  }
+
+  .home-blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-gold-border);
+  }
+
+  .home-blog-img-link {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+
+  .home-blog-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .home-blog-card:hover .home-blog-img {
+    transform: scale(1.05);
+  }
+
+  .home-blog-cat {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(4, 17, 38, 0.85);
+    backdrop-filter: blur(8px);
+    color: var(--color-accent-gold);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 1px solid var(--color-gold-border);
+  }
+
+  .home-blog-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .home-blog-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.825rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .home-blog-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: 1.45;
+  }
+
+  .home-blog-title a:hover {
+    color: var(--color-primary-hover);
+  }
+
+  .home-blog-excerpt {
+    font-size: 0.925rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .home-blog-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 700;
+    font-size: 0.925rem;
+    color: var(--color-primary-hover);
+    transition: gap var(--transition-fast);
+  }
+
+  .home-blog-more:hover {
+    gap: 0.7rem;
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 1024px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      min-height: auto;
+      padding-block: 3.5rem 4rem;
+      text-align: center;
+    }
+    .hero-content {
+      text-align: center;
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero-badge {
+      margin-inline: auto;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-title {
+      text-align: center;
+      font-size: clamp(1.85rem, 6vw, 2.5rem);
+    }
+    .hero-title-accent {
+      text-align: center;
+      display: inline-block;
+    }
+    .hero-lead {
+      text-align: center;
+      margin-inline: auto;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+      max-width: 420px;
+      margin-inline: auto;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2.25rem;
+    }
+    .hero-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .hero-trust-bar {
+      flex-direction: column;
+      gap: 0.85rem;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 1.5rem;
+    }
+    .trust-item {
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+    }
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    .why-us-info {
+      text-align: center;
+    }
+    .why-us-info .section-badge {
+      margin-inline: auto;
+    }
+    .why-us-info .section-desc {
+      text-align: center !important;
+      margin-inline: auto;
+    }
+    .why-us-image-card {
+      margin-inline: auto;
+      max-width: 480px;
+    }
+    .cta-banner-actions {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .cta-banner-actions .btn {
+      width: 100%;
+      max-width: 360px;
+      justify-content: center;
+    }
+    .testimonial-card {
+      text-align: center;
+    }
+    .test-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
+    }
+    .test-user-info {
+      text-align: center;
+    }
+    .test-service-tag {
+      margin-inline: auto;
+      display: table;
+    }
+  }
+</style>

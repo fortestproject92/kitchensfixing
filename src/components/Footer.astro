@@ -1,0 +1,515 @@
+---
+import { siteData } from "../data/siteData";
+import { servicesData } from "../data/servicesData";
+import { areasData } from "../data/areasData";
+---
+
+<footer class="site-footer">
+  <!-- Top Highlights Banner -->
+  <div class="footer-banner">
+    <div class="container footer-banner-grid">
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div>
+          <h4>ضمان معتمد</h4>
+          <p>ضمان شامل على جودة التركيب وقطع الغيار الأصلية</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div>
+          <h4>سرعة استجابة فائقة</h4>
+          <p>معاينة وتنفيذ في نفس اليوم بكافة أحياء الدمام والخبر</p>
+        </div>
+      </div>
+
+      <div class="banner-item">
+        <div class="banner-icon">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="12" y1="1" x2="12" y2="23"></line>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </div>
+        <div>
+          <h4>أفضل سعر وضمان جودة</h4>
+          <p>تسعيرة واضحة بدون رسوم مخفية ومناسبة للجميع</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Footer Content -->
+  <div class="container footer-main">
+    <div class="footer-grid">
+      <!-- Col 1: About & Contacts -->
+      <div class="footer-col about-col">
+        <div class="footer-logo">
+          <img
+            src="/logo-white.svg"
+            alt="شعار فني تركيب وصيانة وفك مطابخ في الدمام"
+            width="220"
+            height="48"
+          />
+        </div>
+        <p class="footer-desc">
+          الوجهة الأولى والأكثر ثقة لخدمات تركيب، صيانة، فك، ونقل وتعديل المطابخ
+          في مدينة الدمام والخبر. نعتمد على أدوات هندسية حديثة ومفصلات إيطالية
+          أصلية لضمان راحة بالك.
+        </p>
+
+        <!-- Social & Contact Links -->
+        <div class="footer-social-links">
+          <a
+            href={siteData.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-btn instagram"
+            aria-label="حساب الانستغرام الرسمي"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            <span>انستغرام المعلم</span>
+          </a>
+          <a
+            href={siteData.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-btn whatsapp"
+            aria-label="مراسلة واتساب"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.963.54 1.761.884 2.796.885h.005c3.179 0 5.765-2.587 5.765-5.766 0-3.18-2.586-5.771-5.77-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.072-2.18-.543-1.637-.677-2.673-2.339-2.755-2.449-.079-.109-.652-.868-.652-1.652 0-.784.411-1.17.558-1.328.146-.159.32-.198.427-.198.106 0 .213.002.307.006.1.006.234-.038.366.279.136.327.464 1.134.505 1.217.041.082.069.178.014.288-.055.109-.083.178-.165.274-.082.096-.173.214-.247.288-.082.083-.169.172-.072.337.096.166.428.705.918 1.141.632.562 1.164.737 1.33.82.165.083.262.069.359-.041.097-.11.412-.48.522-.646.11-.166.22-.138.371-.083.152.055.962.454 1.127.536.165.083.275.124.316.193.041.07.041.405-.103.81z"
+              ></path>
+            </svg>
+            <span>واتساب</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Services -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">خدماتنا الرئيسية</h3>
+        <ul class="footer-links">
+          {
+            servicesData.map((service) => (
+              <li>
+                <a href={`/services#${service.id}`}>{service.title}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Col 3: Coverage Areas -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">مناطق الخدمة بالدمام</h3>
+        <ul class="footer-links">
+          <li><a href="/areas">حي الشاطئ الغربي والشرقي</a></li>
+          <li><a href="/areas">حي الفاخرية والشعلة</a></li>
+          <li><a href="/areas">حي المزروعية وبديع</a></li>
+          <li><a href="/areas">حي الفيصلية والمنار</a></li>
+          <li><a href="/areas">حي الجلوية وغرناطة</a></li>
+          <li><a href="/areas">مدينة الخبر والظهران وسيهات</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Contact Box -->
+      <div class="footer-col">
+        <h3 class="footer-col-title">تواصل مباشر ومعاينة</h3>
+        <div class="contact-card">
+          <div class="contact-row">
+            <span class="contact-label">هاتف الفني:</span>
+            <a
+              href={`tel:${siteData.phoneInternational}`}
+              class="contact-value phone-val"
+              dir="ltr">{siteData.phoneDisplay}</a
+            >
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">أوقات العمل:</span>
+            <span class="contact-value">{siteData.openingHours}</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">الموقع الرئيسي:</span>
+            <span class="contact-value">الدمام - المنطقة الشرقية</span>
+          </div>
+          <a
+            href={`tel:${siteData.phoneInternational}`}
+            class="btn btn-primary"
+            style="width: 100%; margin-top: 1rem;"
+          >
+            اتصال هاتفي مباشر
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO Bottom Keyword Bar -->
+    <div class="footer-seo-keywords">
+      <span class="seo-title">كلمات البحث الشائعة:</span>
+      <p class="seo-keywords-list">
+        فني تركيب مطابخ بالدمام • صيانة مطابخ المنيوم الدمام • معلم فك وتركيب
+        مطابخ بالدمام والخبر • تصليح مفصلات هيدروليك • قص وتعديل رخام مطابخ •
+        تبديل سحابات أدراج رمان • نقل مطابخ من بيت لبيت • تجديد درف مطابخ قديمة
+        • فني مطابخ شاطر بالدمام • صيانة مطابخ سيهات والقطيف والظهران.
+      </p>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <p>
+        © {new Date().getFullYear()} تركيب وصيانة وفك مطابخ في الدمام. جميع الحقوق
+        محفوظة.
+      </p>
+      <div class="footer-bottom-links">
+        <a href="/">الرئيسية</a>
+        <a href="/services">خدماتنا</a>
+        <a href="/gallery">معرض الأعمال</a>
+        <a href="/blog">المقالات</a>
+        <a href="/contact">تواصل معنا</a>
+        <p>
+          {new Date().getFullYear()} برمجة وتصميم فريق فورتك سوفت _
+          <a
+            href="https://wa.me/967779609364"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="dev-whatsapp-link"
+            dir="ltr"
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.963.54 1.761.884 2.796.885h.005c3.179 0 5.765-2.587 5.765-5.766 0-3.18-2.586-5.771-5.77-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.072-2.18-.543-1.637-.677-2.673-2.339-2.755-2.449-.079-.109-.652-.868-.652-1.652 0-.784.411-1.17.558-1.328.146-.159.32-.198.427-.198.106 0 .213.002.307.006.1.006.234-.038.366.279.136.327.464 1.134.505 1.217.041.082.069.178.014.288-.055.109-.083.178-.165.274-.082.096-.173.214-.247.288-.082.083-.169.172-.072.337.096.166.428.705.918 1.141.632.562 1.164.737 1.33.82.165.083.262.069.359-.041.097-.11.412-.48.522-.646.11-.166.22-.138.371-.083.152.055.962.454 1.127.536.165.083.275.124.316.193.041.07.041.405-.103.81z"
+              ></path>
+            </svg>
+            <span>00967779609364</span>
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-dark);
+    color: #cbd5e1;
+    margin-top: auto;
+    border-top: 3px solid var(--color-primary);
+  }
+
+  .footer-banner {
+    background: var(--color-dark-light);
+    border-bottom: 1px solid var(--color-dark-muted);
+    padding-block: 2.25rem;
+  }
+
+  .footer-banner-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .banner-item {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .banner-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    background: rgba(197, 168, 128, 0.15);
+    border: 1px solid rgba(197, 168, 128, 0.35);
+    color: var(--color-accent-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .banner-item h4 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .banner-item p {
+    color: #94a3b8;
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  .footer-main {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 2.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .footer-logo {
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-desc {
+    color: #94a3b8;
+    font-size: 0.925rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-social-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+  }
+
+  .social-btn.instagram {
+    background: #e1306c;
+    color: #ffffff;
+  }
+
+  .social-btn.instagram:hover {
+    background: #c13584;
+    transform: translateY(-2px);
+  }
+
+  .social-btn.whatsapp {
+    background: var(--color-whatsapp);
+    color: #ffffff;
+  }
+
+  .social-btn.whatsapp:hover {
+    background: var(--color-whatsapp-hover);
+    transform: translateY(-2px);
+  }
+
+  .footer-col-title {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.65rem;
+  }
+
+  .footer-col-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 36px;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: 2px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-links a {
+    color: #94a3b8;
+    font-size: 0.925rem;
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-accent-gold);
+    transform: translateX(-4px);
+  }
+
+  .contact-card {
+    background: var(--color-dark-light);
+    border: 1px solid var(--color-dark-muted);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-label {
+    font-size: 0.8rem;
+    color: #64748b;
+  }
+
+  .contact-value {
+    color: #f8fafc;
+    font-size: 0.925rem;
+    font-weight: 600;
+  }
+
+  .phone-val {
+    color: var(--color-accent-gold);
+    font-size: 1.15rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+  }
+
+  /* SEO Bottom Keywords */
+  .footer-seo-keywords {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px dashed var(--color-dark-muted);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.825rem;
+  }
+
+  .seo-title {
+    font-weight: 700;
+    color: var(--color-accent-gold);
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+
+  .seo-keywords-list {
+    color: #94a3b8;
+    line-height: 1.7;
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-dark-muted);
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .footer-bottom-links a {
+    color: #94a3b8;
+  }
+
+  .footer-bottom-links a:hover {
+    color: var(--color-accent-gold);
+  }
+
+  .dev-whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-whatsapp) !important;
+    vertical-align: middle;
+    transition:
+      color 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .dev-whatsapp-link:hover {
+    color: var(--color-whatsapp-hover) !important;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-banner-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer-bottom-links {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>

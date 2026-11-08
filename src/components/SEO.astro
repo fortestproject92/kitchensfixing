@@ -1,0 +1,228 @@
+---
+import { siteData } from '../data/siteData';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalUrl?: string;
+  type?: 'website' | 'article';
+  articleMeta?: {
+    publishDate: string;
+    author: string;
+    tags?: string[];
+  };
+  faqSchema?: Array<{ question: string; answer: string }>;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+}
+
+const {
+  title = siteData.title,
+  description = siteData.description,
+  image = '/images/hero-kitchen.jpg',
+  canonicalUrl = Astro.url.href,
+  type = 'website',
+  articleMeta,
+  faqSchema,
+  breadcrumbs
+} = Astro.props;
+
+const siteUrl = siteData.url;
+const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+
+// Schema: LocalBusiness (General Contractor / Kitchen specialist)
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "تركيب وصيانة وفك مطابخ في الدمام",
+  "alternateName": "فني مطابخ الدمام المتخصص",
+  "description": description,
+  "url": siteUrl,
+  "telephone": siteData.phoneInternational,
+  "priceRange": "$$",
+  "image": [
+    `${siteUrl}/images/hero-kitchen.jpg`,
+    `${siteUrl}/images/kitchen-installation.jpg`,
+    `${siteUrl}/images/kitchen-maintenance.jpg`,
+    `${siteUrl}/images/kitchen-marble.jpg`
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "طريق الملك فهد، حي الشاطئ",
+    "addressLocality": "الدمام",
+    "addressRegion": "المنطقة الشرقية",
+    "postalCode": "32414",
+    "addressCountry": "SA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": siteData.geo.latitude,
+    "longitude": siteData.geo.longitude
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+      ],
+      "opens": "08:00",
+      "closes": "23:00"
+    }
+  ],
+  "areaServed": [
+    { "@type": "City", "name": "الدمام" },
+    { "@type": "City", "name": "الخبر" },
+    { "@type": "City", "name": "الظهران" },
+    { "@type": "City", "name": "سيهات" },
+    { "@type": "City", "name": "القطيف" }
+  ],
+  "sameAs": [
+    siteData.instagramUrl
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "خدمات المطابخ بالدمام",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "تركيب مطابخ جديدة وتفصيل بالدمام"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "صيانة وتجديد المطابخ الألمنيوم والخشب"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "فك ونقل وتعديل مقاسات المطابخ"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "قص وتعديل الرخام الطبيعي والصناعي"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "تبديل المفصلات الهيدروليكية وسحابات الأدراج"
+        }
+      }
+    ]
+  }
+};
+
+// Schema: FAQPage if present
+const faqJsonLd = faqSchema && faqSchema.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqSchema.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+} : null;
+
+// Schema: BreadcrumbList if present
+const breadcrumbsJsonLd = breadcrumbs && breadcrumbs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((crumb, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": crumb.name,
+    "item": crumb.url.startsWith('http') ? crumb.url : `${siteUrl}${crumb.url}`
+  }))
+} : null;
+
+// Schema: Article if type is article
+const articleJsonLd = type === 'article' && articleMeta ? {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "image": fullImageUrl,
+  "author": {
+    "@type": "Person",
+    "name": articleMeta.author || "فني مطابخ الدمام"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "فني مطابخ الدمام",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/favicon.svg`
+    }
+  },
+  "datePublished": articleMeta.publishDate,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  }
+} : null;
+---
+
+<!-- Core Meta Tags -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content="تركيب مطابخ بالدمام, صيانة مطابخ المنيوم بالدمام, فك وتركيب مطابخ بالدمام, فني مطابخ الخبر, قص وتعديل رخام مطابخ, مفصلات هيدروليك الدمام, نقل مطابخ الدمام, تجديد دواليب المطبخ" />
+<meta name="author" content="فني مطابخ الدمام" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Geo Local SEO Meta Tags -->
+<meta name="geo.region" content="SA-04" />
+<meta name="geo.placename" content="Dammam, Eastern Province, Saudi Arabia" />
+<meta name="geo.position" content={`${siteData.geo.latitude};${siteData.geo.longitude}`} />
+<meta name="ICBM" content={`${siteData.geo.latitude}, ${siteData.geo.longitude}`} />
+
+<!-- Icons & Manifest -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/images/icon-192.png" />
+<link rel="manifest" href="/manifest.json" />
+<meta name="theme-color" content="#041126" />
+
+<!-- Fonts Preconnect for Tajawal (Global Font) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullImageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="ar_SA" />
+<meta property="og:site_name" content="تركيب وصيانة وفك مطابخ في الدمام" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullImageUrl} />
+
+<!-- Structured Data (JSON-LD) for Google Dominance -->
+<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+{faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />}
+{breadcrumbsJsonLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbsJsonLd)} />}
+{articleJsonLd && <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />}

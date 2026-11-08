@@ -1,0 +1,16 @@
+{
+  "name": "تركيب وصيانة وفك مطابخ في الدمام",
+  "short_name": "مطابخ الدمام",
+  "description": "أفضل خدمات تركيب وصيانة وفك ونقل وتعديل المطابخ الألمنيوم والخشب وتغيير الرخام والمفصلات في الدمام والخبر والمنطقة الشرقية",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#041126",
+  "theme_color": "#C5A880",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

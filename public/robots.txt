@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kitchen-dammam.com/sitemap.xml
+Sitemap: https://kitchen-dammam.com/sitemap-index.xml
