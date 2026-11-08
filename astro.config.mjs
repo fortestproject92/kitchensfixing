@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'kitchensfixing.com',
+  site: 'https://kitchensfixing.com',
   integrations: [sitemap()]
 });
